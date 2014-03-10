@@ -41,7 +41,11 @@ module Scraper
 		end
 
 		def get_estab_pages
-			filenames = Dir["estab_inspecs/raw/search_pages/*.html"]
+			
+			path = "estab_inspecs/raw/@today/estabs"
+			FileUtils.mkdir_p(path) unless File.exists?(path)
+
+			filenames = Dir["estab_inspecs/raw/@today/search_pages/*.html"]
 
 			filenames.each do |file|
 				html = Nokogiri::HTML(File.open(file, 'r'))
@@ -131,13 +135,13 @@ module Scraper
 		end
 
 		def write_to_search_dir(page)
-			fh = File.open("estab_inspecs/raw/search_pages/#{@start_number}.html", "w" )
+			fh = File.open("estab_inspecs/raw/@today/search_pages/#{@start_number}.html", "w" )
         		fh.write(page)
         	fh.close
 		end
 
 		def write_to_estabs_dir(estab_id, page)
-			fh = File.open("estab_inspecs/raw/estabs/#{estab_id}.html", "w" )
+			fh = File.open("estab_inspecs/raw/@today/estabs/#{estab_id}.html", "w" )
         		fh.write(page)
         	fh.close
 		end
