@@ -67,61 +67,64 @@ module Scraper
 		end
 
 		def process_estabs
-			filenames = Dir["estab_inspecs/raw/estabs/*.html"]
+			#filenames = Dir["estab_inspecs/raw/@today/estabs/*.html"]
+			filenames = Dir["estab_inspecs/raw/12_25_13/estabs/*.html"]
+
 
 			filenames.each do |file|
 				estabs = []
-				@estab_id = file.match(/\d+/).to_s
-				estabs << estab_id
+				@estab_id = file.match(/(?<=licenseID=)\d+/).to_s
+				puts @estab_id
+				# estabs << estab_id
 
-				html = Nokogiri::HTML(File.open(file,'r'))
+				# html = Nokogiri::HTML(File.open(file,'r'))
 
-					name = html.css("#demographic b[style='font-size:14px;']").text
-					estabs << name
+				# 	name = html.css("#demographic b[style='font-size:14px;']").text
+				# 	estabs << name
 
-					init_addy = html.css("#demographic i").text.gsub(/\t|\r|\n|« Back/, '').split(' ')
-					clean_addy = init_addy.join(' ').gsub(/\s(?=,)/, '')
+				# 	init_addy = html.css("#demographic i").text.gsub(/\t|\r|\n|« Back/, '').split(' ')
+				# 	clean_addy = init_addy.join(' ').gsub(/\s(?=,)/, '')
 
-					estabs << clean_addy
+				# 	estabs << clean_addy
 
-					write_to_csv(estabs, 'estabs_tbl')
+				# 	write_to_csv(estabs, 'estabs_tbl')
 					
-					inspections = html.css("div[style='border:1px solid #003399;width:95%;margin-bottom:10px;']").collect
+				# 	inspections = html.css("div[style='border:1px solid #003399;width:95%;margin-bottom:10px;']").collect
 
-					inspections.each do |inspection|
-						inspects = []
+				# 	inspections.each do |inspection|
+				# 		inspects = []
 
-						dd_bits = inspection.css("div[style='padding:5px;']").text.gsub(/\t|\r|\n/, '')
+				# 		dd_bits = inspection.css("div[style='padding:5px;']").text.gsub(/\t|\r|\n/, '')
 						
-						date = dd_bits.match(/\d\d\/\d\d\/\d\d\d\d/).to_s
-						@inspection_key = "#{estab_id}-#{date}"
+				# 		date = dd_bits.match(/\d\d\/\d\d\/\d\d\d\d/).to_s
+				# 		@inspection_key = "#{estab_id}-#{date}"
 
-						demerits = dd_bits.match(/Demerits\s\d+/).to_s
-						demerits_nums = demerits.match(/\d+/).to_s
+				# 		demerits = dd_bits.match(/Demerits\s\d+/).to_s
+				# 		demerits_nums = demerits.match(/\d+/).to_s
 						
-						inspects << estab_id
-						inspects << date
-						inspects << demerits
-						inspects << demerits_nums
-						inspects << inspection_key
+				# 		inspects << estab_id
+				# 		inspects << date
+				# 		inspects << demerits
+				# 		inspects << demerits_nums
+				# 		inspects << inspection_key
 
 
-						write_to_csv(inspects, 'inspections_tbl')
+				# 		write_to_csv(inspects, 'inspections_tbl')
 
-						descs = inspection.css("div[style='background-color:#EFEFEF;padding:5px;']").collect
+				# 		descs = inspection.css("div[style='background-color:#EFEFEF;padding:5px;']").collect
 
 						
-						descs.each do |desc|
-							descs_arr =[]
-							desc.text.chomp.strip == '' ? viol_text = 'No Descriptions' : viol_text = desc.text.chomp.strip
-							descs_arr << @estab_id
-							descs_arr << @inspection_key
-							descs_arr << viol_text
+				# 		descs.each do |desc|
+				# 			descs_arr =[]
+				# 			desc.text.chomp.strip == '' ? viol_text = 'No Descriptions' : viol_text = "#{desc.text.chomp.strip.gsub(/()/)"
+				# 			descs_arr << @estab_id
+				# 			descs_arr << @inspection_key
+				# 			descs_arr << viol_text
 
-							write_to_csv(descs_arr, 'descs_tbl')
-						end
+				# 			write_to_csv(descs_arr, 'descs_tbl')
+				# 		end
 
-					end		
+				# 	end		
 				
 			end
 		end
