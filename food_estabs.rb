@@ -22,12 +22,9 @@ module Scraper
 		end
 
 		def fetch
-			path = "estab_inspecs/raw/"
+			path = "estab_inspecs/raw/@today/search_pages"
 
 			FileUtils.mkdir_p(path) unless File.exists?(path)
-
-
-
 
 			until @counter > @search_page_count 
 
