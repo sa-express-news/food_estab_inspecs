@@ -9,7 +9,7 @@ module Scraper
 	class FoodEstabs
 
 		attr_accessor :search_url, :estab_url, :search_page_count, :counter, :start_number, :page, :estab_id,
-									:inspection_key
+									:inspection_key, :today
 
 
 		def initialize
@@ -18,25 +18,17 @@ module Scraper
 			@search_page_count = 784
 			@counter = 1
 			@start_number = 1
+			@today = Time.new.strftime("%m_%d_%y")
 		end
-
-		#make private
-		def write_to_search_dir(page)
-			fh = File.open("estab_inspecs/raw/search_pages/#{@start_number}.html", "w" )
-        		fh.write(page)
-        	fh.close
-		end
-
-
-		#make private
-		def write_to_estabs_dir(estab_id, page)
-			fh = File.open("estab_inspecs/raw/estabs/#{estab_id}.html", "w" )
-        		fh.write(page)
-        	fh.close
-		end
-
 
 		def fetch
+			path = "estab_inspecs/raw/"
+
+			FileUtils.mkdir_p(path) unless File.exists?(path)
+
+
+
+
 			until @counter > @search_page_count 
 
 				puts "On search page: #{@counter}."	
