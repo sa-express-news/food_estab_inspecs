@@ -15,7 +15,7 @@ module Scraper
 		def initialize
 			@search_url = 'http://samhd.tx.gegov.com/San%20Antonio/search.cfm?start='
 			@estab_url = 'http://samhd.tx.gegov.com/San%20Antonio/'
-			@search_page_count = 784
+			@search_page_count = 794
 			@counter = 1
 			@start_number = 1
 			@today = Time.new.strftime("%m_%d_%y")
@@ -47,7 +47,9 @@ module Scraper
 
 			filenames = Dir["estab_inspecs/raw/#{@today}/search_pages/*.html"]
 
+
 			filenames.each do |file|
+				puts "On file: #{file}"
 				html = Nokogiri::HTML(File.open(file, 'r'))
 				links = html.css('table td a').map { |link| link['href'] }
 				
@@ -67,8 +69,7 @@ module Scraper
 		end
 
 		def process_estabs
-			#filenames = Dir["estab_inspecs/raw/@today/estabs/*.html"]
-			filenames = Dir["estab_inspecs/raw/12_25_13/estabs/*.html"]
+			filenames = Dir["estab_inspecs/raw/@today/estabs/*.html"]
 
 
 			filenames.each do |file|
@@ -133,14 +134,13 @@ module Scraper
 
 		private 
 		def write_to_csv(data=[], file)
-			#CSV.open("estab_inspecs/processed/@today/(#{file}.csv", "a")
-			CSV.open("estab_inspecs/processed/12_25_13/#{file}.csv", "a") do |csv|
+			CSV.open("estab_inspecs/processed/#{@today}/(#{file}.csv", "a") do |csv|
 				csv << data
 			end
 		end
 
 		def write_to_search_dir(page)
-			fh = File.open("estab_inspecs/raw/@today/search_pages/#{@start_number}.html", "w" )
+			fh = File.open("estab_inspecs/raw/#{@today}/search_pages/#{@start_number}.html", "w" )
         		fh.write(page)
         	fh.close
 		end
