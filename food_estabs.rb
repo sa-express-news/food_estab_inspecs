@@ -22,7 +22,7 @@ module Scraper
 		end
 
 		def fetch
-			path = "estab_inspecs/raw/@today/search_pages"
+			path = "estab_inspecs/raw/#{@today}/search_pages"
 
 			FileUtils.mkdir_p(path) unless File.exists?(path)
 
@@ -42,10 +42,10 @@ module Scraper
 
 		def get_estab_pages
 			
-			path = "estab_inspecs/raw/@today/estabs"
+			path = "estab_inspecs/raw/#{@today}/estabs"
 			FileUtils.mkdir_p(path) unless File.exists?(path)
 
-			filenames = Dir["estab_inspecs/raw/@today/search_pages/*.html"]
+			filenames = Dir["estab_inspecs/raw/#{@today}/search_pages/*.html"]
 
 			filenames.each do |file|
 				html = Nokogiri::HTML(File.open(file, 'r'))
