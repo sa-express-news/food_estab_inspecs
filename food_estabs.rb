@@ -23,7 +23,6 @@ module Scraper
 
 		def fetch
 			path = "estab_inspecs/raw/#{@today}/search_pages"
-
 			FileUtils.mkdir_p(path) unless File.exists?(path)
 
 			until @counter > @search_page_count 
@@ -40,36 +39,44 @@ module Scraper
 			end
 		end
 
-		def get_estab_pages
-			
+		def get_estab_pages	
 			path = "estab_inspecs/raw/#{@today}/estabs"
 			FileUtils.mkdir_p(path) unless File.exists?(path)
 
 			filenames = Dir["estab_inspecs/raw/#{@today}/search_pages/*.html"]
+			estabs_dir = Dir['estab_inspecs/raw/#{@today}/estabs/']
 
 
 			filenames.each do |file|
-				puts "On file: #{file}"
-				html = Nokogiri::HTML(File.open(file, 'r'))
-				links = html.css('table td a').map { |link| link['href'] }
+
+				 puts "On file: #{file}"
+				 html = Nokogiri::HTML(File.open(file, 'r'))
+				 links = html.css('table td a').map { |link| link['href'] }
 				
 				links.each do |link|
-					if link =~ /estab.cfm\?licenseID=/
-						@estab = open("#{@estab_url}#{link}").read
-						write_to_estabs_dir(link, @estab )
-						@estab = ''
-						sleep 1
+				 	if link =~ /estab.cfm\?licenseID=/
 
-					else
-						next
-					end
+				 		if File.exists?(File.join(estabs_dir, "#{link}.html"))
+				 			puts "File #{link}.html exists."
+				 		else
+				 			@estab = open("#{@estab_url}#{link}").read
+				 			write_to_estabs_dir( link, @estab )
+				 			@estab = ''
+				 			sleep 1
+				 			
+				 		end
+				 	end
 				end
 
 			end
 		end
 
 		def process_estabs
-			filenames = Dir["estab_inspecs/raw/@today/estabs/*.html"]
+			path = "estab_inspecs/processed/#{today}"
+			FileUtils.mkdir_p(path) unless File.exists?(path)
+
+
+			filenames = Dir["estab_inspecs/raw/#{today}/estabs/*.html"]
 
 
 			filenames.each do |file|
@@ -134,7 +141,7 @@ module Scraper
 
 		private 
 		def write_to_csv(data=[], file)
-			CSV.open("estab_inspecs/processed/#{@today}/(#{file}.csv", "a") do |csv|
+			CSV.open("estab_inspecs/processed/#{today}/#{file}.csv", "a") do |csv|
 				csv << data
 			end
 		end
@@ -145,8 +152,8 @@ module Scraper
         	fh.close
 		end
 
-		def write_to_estabs_dir(estab_id, page)
-			fh = File.open("estab_inspecs/raw/#{@today}/estabs/#{estab_id}.html", "w" )
+		def write_to_estabs_dir(estab_file, page)
+			fh = File.open("estab_inspecs/raw/#{@today}/estabs/#{estab_file}.html", "w" )
         		fh.write(page)
         	fh.close
 		end
