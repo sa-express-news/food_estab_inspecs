@@ -17,6 +17,8 @@ lib
 lib64
 settings.py
 /myproject/myproject/settings.py
+myproject/myproject/settings.pyc
+.pyc
 
 
 ########################
