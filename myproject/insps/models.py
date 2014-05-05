@@ -8,7 +8,7 @@ class GeocodedEstab(models.Model):
 	longitude = models.DecimalField(max_digits=10, decimal_places=7)
 
 	def __unicode_(self):
-		return self.name, self.address
+		return self.name
 
 
 class Inspection(models.Model):
