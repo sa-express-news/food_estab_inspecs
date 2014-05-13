@@ -1,0 +1,7 @@
+{% if latest_insps %}
+    <ul>
+        {% for insp in latest_insps %}
+            <li><a href="/insps/{{ insp.estab_id.estab_id }}/">{{ insp.estab_id.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
