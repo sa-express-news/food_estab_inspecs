@@ -1,1 +1,7 @@
-{{ inspection }}
+{% if estab %}
+    <ul>
+        {% for inspection in estab %}
+            <li><a href="/insps/{{ inspection.inspection_key }}/">{{ inspection.estab_id.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
