@@ -1,0 +1,7 @@
+{% if insp_details %}
+    <ul>
+        {% for inspection in insp_details %}
+            <li>Establishment-name: {{ inspection.estab_id.name }};;Inspection Description: {{ inspection.viol_text }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

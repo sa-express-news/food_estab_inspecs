@@ -20,4 +20,8 @@ def estab(request, estab_id):
 
 
 def inspection(request, inspection_key):
-    return HttpResponse("These are the details for this date's inspection of this restaurant %s" % inspection_key)
+    try:
+        insp_details = Description.objects.all().filter(inspection_key=inspection_key)
+    except Description.DoesNotExist:
+        raise Http404
+    return render(request, 'insps/inspection.html', { 'insp_details': insp_details })
