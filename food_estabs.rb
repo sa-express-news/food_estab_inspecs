@@ -75,8 +75,10 @@ module Scraper
 			path = "estab_inspecs/processed/#{today}"
 			FileUtils.mkdir_p(path) unless File.exists?(path)
 
+			filenames = Dir["estab_inspecs/raw/03_11_14/estabs/*.html"]
 
-			filenames = Dir["estab_inspecs/raw/#{today}/estabs/*.html"]
+
+			#filenames = Dir["estab_inspecs/raw/#{today}/estabs/*.html"]
 
 
 			filenames.each do |file|
@@ -95,7 +97,7 @@ module Scraper
 
 					estabs << clean_addy
 
-					write_to_csv(estabs, 'estabs_tbl')
+					#write_to_csv(estabs, 'estabs_tbl')
 					
 					inspections = html.css("div[style='border:1px solid #003399;width:95%;margin-bottom:10px;']").collect
 
@@ -105,7 +107,10 @@ module Scraper
 						dd_bits = inspection.css("div[style='padding:5px;']").text.gsub(/\t|\r|\n/, '')
 						
 						date = dd_bits.match(/\d\d\/\d\d\/\d\d\d\d/).to_s
-						@inspection_key = "#{estab_id}-#{date}"
+
+						inspec_key_date = date.gsub(/\//, '-')
+
+						@inspection_key = "#{estab_id}-#{inspec_key_date}"
 
 						demerits = dd_bits.match(/Demerits\s\d+/).to_s
 						demerits_nums = demerits.match(/\d+/).to_s
@@ -117,7 +122,7 @@ module Scraper
 						inspects << inspection_key
 
 
-						write_to_csv(inspects, 'inspections_tbl')
+						#write_to_csv(inspects, 'inspections_tbl')
 
 						descs = inspection.css("div[style='background-color:#EFEFEF;padding:5px;']").collect
 
@@ -130,7 +135,7 @@ module Scraper
 							descs_arr << @inspection_key
 							descs_arr << viol_text
 
-							write_to_csv(descs_arr, 'descs_tbl')
+							#write_to_csv(descs_arr, 'descs_tbl')
 						end
 
 					end		
@@ -142,19 +147,19 @@ module Scraper
 		private 
 		def write_to_csv(data=[], file)
 			CSV.open("estab_inspecs/processed/#{today}/#{file}.csv", "a") do |csv|
-				csv << data
+				#csv << data
 			end
 		end
 
 		def write_to_search_dir(page)
 			fh = File.open("estab_inspecs/raw/#{@today}/search_pages/#{@start_number}.html", "w" )
-        		fh.write(page)
+        		#fh.write(page)
         	fh.close
 		end
 
 		def write_to_estabs_dir(estab_file, page)
 			fh = File.open("estab_inspecs/raw/#{@today}/estabs/#{estab_file}.html", "w" )
-        		fh.write(page)
+        		#fh.write(page)
         	fh.close
 		end
 
