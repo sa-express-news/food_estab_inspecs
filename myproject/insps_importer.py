@@ -25,9 +25,7 @@ def load(reader_o):
 
         else:
             print("new record")
-            record.save()
-            
-    inspections = Inspection.objects.all()
+            record.save() 
 
 
 def get_csv(filename):
