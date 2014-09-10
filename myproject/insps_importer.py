@@ -16,7 +16,6 @@ def make_today():
 
 def load(reader_o):
     inspections = Inspection.objects.all()
-    print(len(inspections))
 
     for o in reader_o:
         record = Inspection(**o)
@@ -29,7 +28,6 @@ def load(reader_o):
             record.save()
             
     inspections = Inspection.objects.all()
-    print(len(inspections))
 
 
 def get_csv(filename):
