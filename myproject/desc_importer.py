@@ -8,8 +8,6 @@ from insps.models import Description
 
 BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
 
-test_today = '08_26_14'
-
 def make_today():
     today = datetime.datetime.now().strftime("%m_%d_%y")
     return today
@@ -46,7 +44,7 @@ def get_new_descs_ids(reader_o, url):
     load_descs(new_descs_list, url)
             
 def get_csv(filename):
-    url = BASEURL + test_today + '/' + filename
+    url = BASEURL + today + '/' + filename
 
     csv_resp = urllib2.urlopen(url)
     reader_o = csv.DictReader(csv_resp)
