@@ -14,7 +14,6 @@ def make_today():
 
 def load(reader_o):
     estabs = GeocodedEstab.objects.all()
-    print(len(estabs))
 
     for o in reader_o:
         record = GeocodedEstab(**o)
@@ -26,7 +25,7 @@ def load(reader_o):
 
 
 def get_csv(filename):
-    url = BASEURL + today + '/' + filename
+    url = BASEURL + make_today() + '/' + filename
 
     response = urllib2.urlopen(url)
     reader_o = csv.DictReader(response)
