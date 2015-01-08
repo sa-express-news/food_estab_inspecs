@@ -14,6 +14,8 @@ def make_today():
 
 def load(reader_o):
     estabs = GeocodedEstab.objects.all()
+    initial_estab_count = len(estabs)
+    print('Initial estab count %s') % initial_estab_count 
 
     for o in reader_o:
         record = GeocodedEstab(**o)
@@ -22,6 +24,12 @@ def load(reader_o):
             print("record exists")
         else:
             record.save()
+            print("record saved")
+
+    estabs = GeocodedEstab.objects.all()
+    final_estab_count = len(estabs)
+    print('Final estab count %s') % final_estab_count 
+
 
 
 def get_csv(filename):
