@@ -14,6 +14,8 @@ def make_today():
 
 def load(reader_o):
     inspections = Inspection.objects.all()
+    inspections_length = len(inspections)
+    print("Initial inspection length:%s") % inspections_length
 
     for o in reader_o:
         record = Inspection(**o)
@@ -24,6 +26,10 @@ def load(reader_o):
         else:
             print("new record")
             record.save() 
+
+    inspections = Inspection.objects.all()
+    final_inspections_length = len(inspections)
+    print("Final inspection length: %s") % final_inspections_length
 
 
 def get_csv(filename):
