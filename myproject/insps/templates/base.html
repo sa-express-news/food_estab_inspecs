@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}San Antonio Food Establishment Inspections Explorer{% endblock %}</title>
+</head>
+
+<body>
+    <div class="iframe_header">
+
+      <iframe target=_blank src="http://www.mysanantonio.com/?controllerName=cmfThirdPartyHeader" width="1030" height="310" scrolling="no" frameborder="0"></iframe>
+
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+
