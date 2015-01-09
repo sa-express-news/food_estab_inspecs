@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if latest_insps %}
     <ul>
         {% for insp in latest_insps %}
@@ -5,3 +9,5 @@
         {% endfor %}
     </ul>
 {% endif %}
+
+{% endblock %}
