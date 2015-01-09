@@ -7,13 +7,18 @@
 
 <body>
     <div class="iframe_header">
-
       <iframe target=_blank src="http://www.mysanantonio.com/?controllerName=cmfThirdPartyHeader" width="1030" height="310" scrolling="no" frameborder="0"></iframe>
-
     </div>
+
     <div id="content">
         {% block content %}{% endblock %}
     </div>
+
+    <div class="iframe_footer">
+    
+    <iframe src="http://www.mysanantonio.com/?controllerName=cmfThirdPartyFooter" width="1030" height="450" scrolling="no" frameborder="0"></iframe>
+    </div>
+
 </body>
 </html>
 
