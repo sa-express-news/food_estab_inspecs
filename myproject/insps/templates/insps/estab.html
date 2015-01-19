@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+
+{% block rest_insp_list %}
 {% if estab %}
     <ul>
         {% for inspection in estab %}
@@ -5,3 +9,4 @@
         {% endfor %}
     </ul>
 {% endif %}
+{% endblock %}
