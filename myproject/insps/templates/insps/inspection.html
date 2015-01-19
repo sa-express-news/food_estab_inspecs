@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block insp_detail %}
+
 {% if insp_details %}
     <ul>
         {% for inspection in insp_details %}
@@ -5,3 +9,5 @@
         {% endfor %}
     </ul>
 {% endif %}
+
+{% endblock %}
