@@ -1,0 +1,6 @@
+body {font-size:14px;}
+
+
+/*iframe header and footer*/
+.iframe_header{ width:1025px;height:310px;margin:0 auto; overflow: hidden;  }
+.iframe_footer{ width:1025px;height:450px;margin:0 auto; overflow: hidden;  }
