@@ -2,7 +2,14 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static "insps/css/style.css" %}"
+    <link rel="stylesheet" href="{% static "insps/css/style.css" %}" />
+    <link rel="stylesheet" href="{% static "insps/css/jquery.dataTables.css" %}" />
+    <script type="text/javascript" src="{% static "insps/js/jquery-1.11.1.min.js" %}"> </script>
+    <script type="text/javascript" src="{% static "insps/js/jquery.dataTables.min.js" %}"> 
+    </script>
+  
+    {% block index_Data_Table %} {% endblock %} 
+    
     <title>{% block title %} {% endblock %}</title>
 </head>
 

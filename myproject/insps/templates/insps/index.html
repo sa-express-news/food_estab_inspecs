@@ -4,6 +4,16 @@
 San Antonio Food Establishment Inspections Explorer
 {% endblock %}
 
+{% block index_Data_Table %}
+<script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('#latest_inspections_table').DataTable( {
+            paging: false
+        } );
+    } );
+</script>
+{% endblock %}
+
 {% block index_table %}
 
 <table id="latest_inspections_table">
