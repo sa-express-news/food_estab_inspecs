@@ -12,3 +12,12 @@ body {font-size:14px;}
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+#estab_summary_list {
+    width:1025px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}

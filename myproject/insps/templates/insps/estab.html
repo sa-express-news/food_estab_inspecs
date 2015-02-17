@@ -3,10 +3,12 @@
 
 {% block rest_insp_list %}
 {% if estab %}
+<div id="estab_summary_list">
     <ul>
         {% for inspection in estab %}
             <li><a href="/insps/{{ inspection.inspection_key }}/">{{ inspection.estab_id.name }}</a> Has this many demerits for this inspection: {{ inspection.demerits }}.  Click the link to learn more about this inspection.</li>
         {% endfor %}
     </ul>
+</div>
 {% endif %}
 {% endblock %}
