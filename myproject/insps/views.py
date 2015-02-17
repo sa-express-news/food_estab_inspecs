@@ -6,7 +6,8 @@ from django.shortcuts import render
 from insps.models import Inspection, Description
 
 def index(request):
-    latest_insps = Inspection.objects.filter(date__range=["2013-11-30", "2013-12-31"])
+    latest_insps = Inspection.objects.all().order_by('-date')[:500]
+
     template = loader.get_template('insps/index.html')
     context = {'latest_insps': latest_insps}
     return render(request, 'insps/index.html', context)
