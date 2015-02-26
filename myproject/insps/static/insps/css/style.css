@@ -15,6 +15,7 @@ body {font-size:16px;}
     margin-top: 15px;
     margin-bottom: 15px;
 }
+/*index page styles*/
 
 
 /*estab page styles */
@@ -35,7 +36,7 @@ body {font-size:16px;}
     width:40%;
 }
 
-.text {
+.estab_page_text {
 
     padding:5px;
 }
@@ -54,4 +55,17 @@ hr.style-one {
     background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc); 
     background-image:      -o-linear-gradient(left, #ccc, #333, #ccc); 
 }
+
+
+#estab_chart {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width:65%;
+
+}
+
+
+
+/*estab page styles */
 
