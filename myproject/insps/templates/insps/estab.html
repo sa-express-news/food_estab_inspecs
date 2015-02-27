@@ -13,56 +13,77 @@
         <div id="estab_summary_list">
             <ul>
                 {% for inspection in estab %}
+
                     <li><a href="/insps/{{ inspection.inspection_key }}/">{{ inspection.estab_id.name }}</a> was inspected on {{ inspection.date }} with {{ inspection.demerits_nums }} demerit{{ inspection.demerits_nums|pluralize }}.</li>
+
                 {% endfor %}
             </ul>
         </div>
     {% endif %}
     <div class="clear_floats"></div>
-
-    <hr class="style-one">
     
+    {% if estab.count > 1 %}
+    <hr class="style-one">
     <div id="estab_chart">
         <script type="text/javascript">
-        $(function () {
-    $('#estab_chart').highcharts({
-        chart: {
-            type: 'line'
-        },
-        title: {
-            text: 'Monthly Average Temperature'
-        },
-        subtitle: {
-            text: 'Source: WorldClimate.com'
-        },
-        xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
-        yAxis: {
-            title: {
-                text: 'Temperature (°C)'
-            }
-        },
-        plotOptions: {
-            line: {
-                dataLabels: {
-                    enabled: true
-                },
-                enableMouseTracking: false
-            }
-        },
-        series: [{
-            name: 'Tokyo',
-            data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-        }, {
-            name: 'London',
-            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-        }]
-    });
-});
+            var json =  [
+                        {% for inspection in estab %}
+                            {
+                                "date": "{{ inspection.date }}",
+                                "demerits": {{ inspection.demerits_nums }}
+                            }{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                        ];
+
+            var demerits_js = new Array();
+            var dates_js = new Array();
+
+            $.map(json, function(obj, i) {
+                demerits_js.push(parseInt(obj.demerits));
+                dates_js.push((obj.date));
+
+            });
+
+             console.log(json);
+
+
+            $(function () {
+                $('#estab_chart').highcharts({
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: 'Inspection Results'
+                    },
+                    subtitle: {
+                        text: 'San Antonio Metropolitan Health District'
+                    },
+                    xAxis: {
+                        categories: dates_js
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Demerits'
+                        }
+                    },
+                    plotOptions: {
+                        line: {
+                            dataLabels: {
+                                enabled: true
+                            },
+                            enableMouseTracking: false
+                        }
+                    },
+                    series: [{
+                        showInLegend: false,
+                        data: demerits_js
+                    }]
+                });
+            });
         </script>
 
     </div>
-</div>
+    {% endif %}
 
+</div>
 {% endblock %}
