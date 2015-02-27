@@ -65,7 +65,13 @@ hr.style-one {
 
 }
 
-
+#estab_name_header {
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width:45%;
+    color:#707070;
+}
 
 /*estab page styles */
 

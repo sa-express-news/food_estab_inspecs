@@ -3,25 +3,26 @@
 {% block rest_insp_list %}
 
 <div id="estab_container">
+    <h2 id="estab_name_header">{{ estab.0.estab_id.name }}, {{ estab.0.estab_id.address}}</h2>
+
+    <hr class="style-one">
 
     <div id="inspection_exposi">
         <p class="estab_page_text">this is a paragraph detailing the city's policy about how thye inspect restaurants. i'd write in here for example how they inspect restaurants more often when they're doing poorly and progressive less often as they get better.  i'm not sure what the threshold is.</p>  
 
         <p class="estab_page_text">maybe i'll include an example or two about how a certain number of demerits might affect the inspection schedule for a specfic restaurant.  i'll write some more and then probably a little more and then boom. i'm done. </p>
     </div>
-    {% if estab %}
-        <div id="estab_summary_list">
-            <ul>
-                {% for inspection in estab %}
+    <div id="estab_summary_list">
+        <ul>
+            {% for inspection in estab %}
 
-                    <li><a href="/insps/{{ inspection.inspection_key }}/">{{ inspection.estab_id.name }}</a> was inspected on {{ inspection.date }} with {{ inspection.demerits_nums }} demerit{{ inspection.demerits_nums|pluralize }}.</li>
+                <li><a href="/insps/{{ inspection.inspection_key }}/">{{ inspection.estab_id.name }}</a> was inspected on {{ inspection.date }} with {{ inspection.demerits_nums }} demerit{{ inspection.demerits_nums|pluralize }}.</li>
 
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
     <div class="clear_floats"></div>
-    
+
     {% if estab.count > 1 %}
     <hr class="style-one">
     <div id="estab_chart">
@@ -44,8 +45,6 @@
 
             });
 
-             console.log(json);
-
 
             $(function () {
                 $('#estab_chart').highcharts({
@@ -66,10 +65,14 @@
                             text: 'Demerits'
                         }
                     },
+                    tooltip: {
+                        enabled: true
+
+                    },
                     plotOptions: {
                         line: {
                             dataLabels: {
-                                enabled: true
+                                enabled: false
                             },
                             enableMouseTracking: false
                         }
