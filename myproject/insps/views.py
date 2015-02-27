@@ -15,6 +15,7 @@ def index(request):
 def estab(request, estab_id):
     try:
         estab = Inspection.objects.all().filter(estab_id=estab_id).order_by('date')
+        print(estab[0].estab_id.name);
     except Inspection.DoesNotExist:
         raise Http404
     return render(request, 'insps/estab.html', { 'estab': estab })
