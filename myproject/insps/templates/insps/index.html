@@ -8,7 +8,8 @@ San Antonio Food Establishment Inspections Explorer
 <script type="text/javascript" class="init">
     $(document).ready( function () {
         $('#latest_inspections_table').DataTable( {
-            paging: true
+            paging: true,
+             "order": [[ 2, "desc" ]]
 
         } );
     } );
