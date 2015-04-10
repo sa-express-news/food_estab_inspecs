@@ -9,7 +9,7 @@
 
 
     <div class="clear_floats"></div>
-    <div id="list4-estab_summary">
+    <!--<div id="list4-estab_summary">
         <ul>
             {% for inspection in estab %}
 
@@ -17,7 +17,7 @@
 
             {% endfor %}
         </ul>
-    </div>
+    </div>-->
 
     {% if estab.count > 1 %}
     <div id="estab_chart">
@@ -80,7 +80,10 @@
                     },
                     series: [{
                         showInLegend: false,
-                        data: demerits_js
+                        data: demerits_js,
+                        animation: {
+                            duration: 4000
+                        }
                     }]
                 });
             });
