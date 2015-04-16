@@ -33,19 +33,15 @@
                         {% endfor %}
                         ];
 
-            //var demerits_js = new Array();
             var demerits_js = new Array;
             var dates_js = new Array();
 
             $.map(json, function(obj, i) {
-                //demerits_js.push(parseInt(obj.demerits));
-                //demerits_js = { y: parseInt(obj.demerits), inspection_key : obj.inspection_key }
                 demerits_js.push({ y: parseInt(obj.demerits), inspection_key: obj.inspection_key });
                 dates_js.push((obj.date));
 
             });
 
-            console.log(demerits_js);
             $(function () {
                 $('#estab_chart').highcharts({
                     chart: {
@@ -74,7 +70,7 @@
                     tooltip: {
                         enabled: true, 
                         formatter: function() {
-                            return 'The value for <b>' + this.x + '</b> is <b>' + this.y + '</b>, in series '+ this.series.name;
+                            return 'Demerits: ' + this.point.y + '<br>' + '<a href="http://localhost:8000/insps/' + this.point.inspection_key + '/">Inspection details.';
                         }
                     },
                     series: [{
