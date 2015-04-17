@@ -73,5 +73,20 @@ hr.style-one {
     color:#707070;
 }
 
+#viollist {
+    width: 780;
+    border: 1px solid #333;
+    margin: 10px;
+
+}
+
+.viol {
+    font-family: Arial, Helvetica, san-serif;
+    color: #333;
+    line-height: 1.2em;
+    text-decoration: none;
+
+}
+
 /*estab page styles */
 
