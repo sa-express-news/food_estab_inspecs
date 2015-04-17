@@ -45,7 +45,7 @@
             $(function () {
                 $('#estab_chart').highcharts({
                     chart: {
-                        type: 'line'
+                        type: 'scatter'
                     },
                     title: {
                         text: 'Inspection Results',
@@ -78,6 +78,12 @@
                         data: demerits_js,
                         animation: {
                             duration: 4000
+                        },
+                        marker: {
+                            enabled: true,
+                            symbol: 'circle',
+                            radius: 9,
+                            fillColor: 'red'
                         }
                     }]
                 });
