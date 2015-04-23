@@ -10,7 +10,7 @@
 
     <div class="clear_floats"></div>
 
-    {% if estab.count > 1 %}
+    {% if estab.count > 1 and total_demerits > 0 %}
     <div id="estab_chart">
         <script type="text/javascript">
             var json =  [
@@ -83,11 +83,18 @@
         </script>
 
     </div>
+    {% else %}
+        <div id="no_estabs">
+            <p>
+                This establishment either has no inspections in the database or the demerit total for all inspections is 0. 
+            </p>
+
+        </div>
     {% endif %}
 
-    <!--<div id="inspection_exposi">
-    <p class="estab_page_text">this is a paragraph detailing the city's policy about how thye inspect restaurants. i'd write in here for example how they inspect restaurants more often when they're doing poorly and progressive less often as they get better.  i'm not sure what the threshold is.</p>  
-    </div>-->
+    <div id="inspection_exposi">
+    <p class="estab_page_text"> &mdash;this is a paragraph detailing the city's policy about how thye inspect restaurants. i'd write in here for example how they inspect restaurants more often when they're doing poorly and progressive less often as they get better.  i'm not sure what the threshold is.&mdash;</p>  
+    </div>
 
 </div>
 {% endblock %}

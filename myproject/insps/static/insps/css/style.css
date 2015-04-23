@@ -28,17 +28,17 @@ body {font-size:16px;}
     margin-bottom: 10px;
 }
 
-#estab_summary_list {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    float:left;
-    margin-bottom: 10px;
-    width:40%;
-}
-
 .estab_page_text {
 
     padding:5px;
+}
+
+#no_estabs {
+    color:#9F090B;
+    margin-left: 18%;
+    font-size: 120%;
+    width:60%;
+
 }
 
 /* Gradient color1 - color2 - color1 */

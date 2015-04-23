@@ -13,12 +13,16 @@ def index(request):
     return render(request, 'insps/index.html', context)
 
 def estab(request, estab_id):
+    total_demerits = 0
     try:
         estab = Inspection.objects.all().filter(estab_id=estab_id).order_by('date')
-        print(estab[0].estab_id.name);
+
+        for inspection in estab:
+            total_demerits += inspection.demerits_nums
+
     except Inspection.DoesNotExist:
         raise Http404
-    return render(request, 'insps/estab.html', { 'estab': estab })
+    return render(request, 'insps/estab.html', { 'estab': estab, 'total_demerits':total_demerits })
 
 
 def inspection(request, inspection_key):
