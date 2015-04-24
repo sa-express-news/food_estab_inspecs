@@ -86,12 +86,6 @@ hr.style-one {
     color:#707070;
 }
 
-/*#viollist {
-    width: 780;
-    border: 1px solid #333;
-    margin: 10px;
-
-}*/
 /*estab page styles */
 
 .viol {
@@ -103,7 +97,11 @@ hr.style-one {
 }
 ul#insp_details {
     list-style-type: none;
-
-
+    width:75%;
+    margin-right: auto;
+    margin-left: 7%;
 }
 
+ul#insp_details li {
+    margin-top: 2%;
+}

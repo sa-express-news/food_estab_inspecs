@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block insp_detail %}
-
 {% if insp_details %}
-    <ul>
+<h2 id="estab_name_header">{{ insp_details.0.estab_id.name }}, {{ insp_details.0.estab_id.address}}</h2>
+
+    <ul id="insp_details">
         {% for inspection in insp_details %}
             <li class="viol">{{ inspection.viol_text }}</li>
         {% endfor %}
