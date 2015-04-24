@@ -31,3 +31,9 @@ def inspection(request, inspection_key):
     except Description.DoesNotExist:
         raise Http404
     return render(request, 'insps/inspection.html', { 'insp_details': insp_details })
+
+
+
+
+
+
