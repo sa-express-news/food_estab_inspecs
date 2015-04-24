@@ -41,28 +41,40 @@
                     title: {
                         text: 'Inspection Results',
                         style: {
-                            fontFamily:'Georgia, Times, serif' 
+                            fontFamily:'Georgia, Times, serif',
+                            fontSize:"140%" 
                         }
                     },
                     subtitle: {
                         text: 'San Antonio Metropolitan Health District',
                         style: {
-                            fontFamily:'Georgia, Times, serif' 
+                            fontFamily:'Georgia, Times, serif',
+                            fontSize: "130%" 
                         }
                     },
                     xAxis: {
                         categories: dates_js
                     },
                     yAxis: {
+                        labels: {
+                            align:'left',
+                            x:0,
+                            y:-2
+                        },
                         title: {
-                            text: 'Demerits'
+                            text: 'Demerits',
+                            style: {
+                                fontFamily: 'Georgia, Times, serif',
+                                fontSize: "130%",
+                                letterSpacing:'.5px'
+                            }
                         },
                         min: 0
                     },
                     tooltip: {
                         enabled: true, 
                         formatter: function() {
-                            return 'Demerits: ' + this.point.y + '<br>' + '<a href="http://localhost:8000/insps/' + this.point.inspection_key + '/">Inspection details.';
+                            return 'Demerits: ' + this.point.y + '<br>' + '<a href="http://localhost:8000/insps/' + this.point.inspection_key + '/">Click for details.';
                         }
                     },
                     series: [{
@@ -93,8 +105,10 @@
     {% endif %}
 
     <div id="inspection_exposi">
-    <p class="estab_page_text"> &mdash;this is a paragraph detailing the city's policy about how thye inspect restaurants. i'd write in here for example how they inspect restaurants more often when they're doing poorly and progressive less often as they get better.  i'm not sure what the threshold is.&mdash;</p>  
-    </div>
+    <p id="hover_warning">Hover over each circle and click for detailed information on violations for each inspection date.</p>
+
+    <!--<p class="estab_page_text"> &mdash;this is a paragraph detailing the city's policy about how thye inspect restaurants. i'd write in here for example how they inspect restaurants more often when they're doing poorly and progressive less often as they get better.  i'm not sure what the threshold is.&mdash;</p>  
+    </div>-->
 
 </div>
 {% endblock %}

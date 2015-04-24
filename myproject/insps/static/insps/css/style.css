@@ -1,4 +1,7 @@
-body {font-size:16px;}
+body {
+    font-size:16px;
+    font-family: 'Georgia, Times, serif';
+}
 
 .clear_floats {clear:both;}
 
@@ -22,15 +25,17 @@ body {font-size:16px;}
 #inspection_exposi {
     margin-top: 15px;
     width:60%;
-    height:150px;
+    height:auto;
     margin-left: 18%;
     float:left;
     margin-bottom: 10px;
 }
 
 .estab_page_text {
-
+    font-size: 125%;
     padding:5px;
+    font-family: 'Georgia, Times, serif';
+    height:auto;
 }
 
 #no_estabs {
@@ -38,6 +43,14 @@ body {font-size:16px;}
     margin-left: 18%;
     font-size: 120%;
     width:60%;
+
+}
+
+#hover_warning {
+    font-size: 100%;
+    font-family: 'Georgia, Times, serif';
+    height:auto;
+    font-style: italic;
 
 }
 
@@ -73,12 +86,13 @@ hr.style-one {
     color:#707070;
 }
 
-#viollist {
+/*#viollist {
     width: 780;
     border: 1px solid #333;
     margin: 10px;
 
-}
+}*/
+/*estab page styles */
 
 .viol {
     font-family: Arial, Helvetica, san-serif;
@@ -87,6 +101,9 @@ hr.style-one {
     text-decoration: none;
 
 }
+ul#insp_details {
+    list-style-type: none;
 
-/*estab page styles */
+
+}
 
