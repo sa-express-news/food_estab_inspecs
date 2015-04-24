@@ -88,6 +88,9 @@ hr.style-one {
 
 /*estab page styles */
 
+
+
+/*inspection detail styles */
 .viol {
     font-family: Arial, Helvetica, san-serif;
     color: #333;
@@ -105,3 +108,15 @@ ul#insp_details {
 ul#insp_details li {
     margin-top: 2%;
 }
+
+h4#inspection_detail_date {
+    margin-right: auto;
+    margin-left: 10.15%;
+    margin-right: auto;
+    width:20%;
+    color:#707070;
+}
+
+/*end inspection detail styles*/
+
+
