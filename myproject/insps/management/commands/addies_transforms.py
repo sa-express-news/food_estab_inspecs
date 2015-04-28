@@ -25,13 +25,13 @@ class Command(BaseCommand):
             ('JDTN FY', 'JOURDANTON FWY'),
             ('CI', 'CIR'),
         } 
-        estabs_to_geocode = GeocodedEstab.objects.all()
-        for estab in estabs_to_geocode:
+        estabs = GeocodedEstab.objects.all()
+        for estab in estabs:
             print("Estab evaluating for transformation: " + estab.address)
             for transform in transforms:
                 estab.address = estab.address.replace(*transform)
                 estab.save()
-        
+
 
 
 
