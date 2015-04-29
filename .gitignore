@@ -4,6 +4,7 @@ myproject/insps/data/
 /data/
 .DS_Store
 food_estabs.rb
+/logfile
 
 
 ########################
