@@ -117,6 +117,16 @@ h4#inspection_detail_date {
     color:#707070;
 }
 
+h2#estab_name_header a {
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width:45%;
+    color:#707070;
+    text-decoration: none;
+
+}
+
 /*end inspection detail styles*/
 
 
