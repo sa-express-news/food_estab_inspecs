@@ -12,6 +12,9 @@
     </script>
     <script type="text/javascript" src="{% static "insps/js/leaflet.js" %}">
     </script>
+    <!--<script type="text/javascript" src="{% static "insps/js/estabsmap.js" %}">
+    </script>-->
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script> 
   
     {% block index_Data_Table %} {% endblock %} 
     
@@ -23,14 +26,10 @@
       <iframe target=_blank src="http://www.mysanantonio.com/?controllerName=cmfThirdPartyHeader" width="1030" height="310" scrolling="no" frameborder="0"></iframe>
     </div>
 
-    
+    {% block estabsmapdiv %}{% endblock %}
+
     {% block index_table %}{% endblock %}
     
-    
-    {% block rest_insp_list %}{% endblock %}
-    
-
-   
     {% block insp_detail %}{% endblock %}
    
 
@@ -39,5 +38,6 @@
     </div>
 
 </body>
+{% block estabsmap %}{% endblock %}
 </html>
 

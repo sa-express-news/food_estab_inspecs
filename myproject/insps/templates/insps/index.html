@@ -4,6 +4,10 @@
 San Antonio Food Establishment Inspections Explorer
 {% endblock %}
 
+{% block estabsmapdiv %}
+<div id="map"> </div>
+{% endblock %}
+
 {% block index_Data_Table %}
 <script type="text/javascript" class="init">
     $(document).ready( function () {
@@ -40,5 +44,14 @@ San Antonio Food Establishment Inspections Explorer
     </tbody>
 </table>
 {% endif %}
-
 {% endblock %}
+
+{% block estabsmap %}
+<script type="text/javascript">
+    var map = L.map('map', {scrollWheelZoom: false}).setView([29.4467297, -98.5094801], 10);
+    var layer = new L.StamenTileLayer("toner-lite");
+
+    map.addLayer(layer);
+</script>
+{% endblock %}
+
