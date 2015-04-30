@@ -52,6 +52,55 @@ San Antonio Food Establishment Inspections Explorer
     var layer = new L.StamenTileLayer("toner-lite");
 
     map.addLayer(layer);
+
+    var data = {
+        "type": "FeatureCollection",
+        "features": [
+        {% for insp in latest_insps %}
+            {
+                "type": "Feature",
+                "properties": {
+                    "rest_name": "{{ insp.estab_id.name }}",
+                    "address": "{{ insp.estab_id.address }}",
+                    "demerits": {{ insp.demerits_nums }},
+                    "estab_id": "{{ insp.estab_id.estab_id }}",
+                    "date": "{{ insp.date }}"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [{{ insp.estab_id.longitude }}, {{ insp.estab_id.latitude }}]
+                }
+            }{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        ]
+    };
+
+    console.log(data);
+
+    var geojsonMarkerOptions = {
+        radius: 7,
+        fillColor: "#ff6600",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    var dataLayer = L.geoJson(data, {
+        pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, geojsonMarkerOptions);
+        },
+        onEachFeature: function(feature, layer){
+            layer.bindPopup(
+                '<a href="' + feature.properties.estab_id + '/">' +
+                    feature.properties.rest_name + '</a>' + '<br />' +
+                    'Inspection Date: ' + feature.properties.date + '<br />' +
+                    'Demerits: ' + feature.properties.demerits
+                );
+        }
+    })
+
+    map.addLayer(dataLayer);
 </script>
 {% endblock %}
 
