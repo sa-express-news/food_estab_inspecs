@@ -3,7 +3,7 @@ from django.template import RequestContext, loader
 
 from django.shortcuts import render
 
-from insps.models import Inspection, Description
+from insps.models import Inspection, Description, GeocodedEstab
 
 def index(request):
     latest_insps = Inspection.objects.all().order_by('-date')[:500]
@@ -31,6 +31,9 @@ def inspection(request, inspection_key):
     except Description.DoesNotExist:
         raise Http404
     return render(request, 'insps/inspection.html', { 'insp_details': insp_details })
+
+
+
 
 
 
