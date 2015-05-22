@@ -28,7 +28,6 @@ body {
     margin-left:auto;
     margin-right: auto;
     font-family: 'Sanchez', serif;
-
 }
 /*index page styles*/
 
@@ -46,7 +45,7 @@ body {
 .estab_page_text {
     font-size: 125%;
     padding:5px;
-    font-family: 'Georgia, Times, serif';
+    font-family: 'Sanchez', serif;
     height:auto;
 }
 
@@ -60,7 +59,7 @@ body {
 
 #hover_warning {
     font-size: 100%;
-    font-family: 'Georgia, Times, serif';
+    font-family: 'Sanchez', serif;
     height:auto;
     font-style: italic;
 
@@ -103,7 +102,7 @@ hr.style-one {
 
 /*inspection detail styles */
 .viol {
-    font-family: Arial, Helvetica, san-serif;
+    font-family: 'Sanchez', serif;
     color: #333;
     line-height: 1.2em;
     text-decoration: none;
