@@ -6,6 +6,21 @@ body {
     font-family: 'Sanchez', serif;
 }
 
+#homebutton{
+    height: 41px;
+    width: 200px;
+    background-color: #F9F9F9;
+    color:#F4811F;
+    border-radius: 15px;
+    -moz-border-radius:15px;
+    border-style:solid;
+    border-color: black;
+    border-width: 1px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 41px;
+}   
+
 .clear_floats {clear:both;}
 
 
