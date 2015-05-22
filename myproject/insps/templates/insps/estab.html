@@ -53,13 +53,21 @@
                         }
                     },
                     xAxis: {
-                        categories: dates_js
+                        categories: dates_js,
+                        labels: {
+                            style: {
+                                fontFamily: 'Sanchez, serif'                            
+                            }
+                        }
                     },
                     yAxis: {
                         labels: {
                             align:'left',
                             x:0,
-                            y:-2
+                            y:-2,
+                            style: {
+                                fontFamily: 'Sanchez, serif'
+                            }
                         },
                         title: {
                             text: 'Demerits',
@@ -75,6 +83,9 @@
                         enabled: true, 
                         formatter: function() {
                             return 'Demerits: ' + this.point.y + '<br>' + '<a href="http://localhost:8000/insps/' + this.point.inspection_key + '/">Click for details.';
+                        },
+                        style: {
+                            fontFamily: 'Sanchez, serif',
                         }
                     },
                     series: [{
