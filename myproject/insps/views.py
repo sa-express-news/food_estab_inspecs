@@ -1,6 +1,5 @@
 from django.http import HttpResponse, Http404
 from django.template import RequestContext, loader
-
 from django.shortcuts import render
 
 from insps.models import Inspection, Description, GeocodedEstab
