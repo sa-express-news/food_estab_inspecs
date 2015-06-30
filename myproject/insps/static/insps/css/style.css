@@ -149,8 +149,10 @@ hr.style-one {
 
 /*inspection detail styles */
 .inspection_container{
-    width:95%;
     height:auto;
+    width:95%;
+    margin:auto;
+    max-width: 1025px;
 }
 
 .viol {
@@ -162,9 +164,7 @@ hr.style-one {
 }
 ul#insp_details {
     list-style-type: none;
-    width:75%;
-    margin-right: auto;
-    margin-left: 7%;
+ 
 }
 
 ul#insp_details li {
