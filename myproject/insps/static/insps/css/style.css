@@ -57,6 +57,7 @@ a.homelink:link {
 /*index page styles*/
 #latest_inspections_table_wrapper {
     width:80%;
+    max-width: 1025px;
     margin-left:auto;
     margin-right: auto;
     margin-top: 15px;
@@ -71,7 +72,10 @@ a.homelink:link {
     margin-left:auto;
     margin-right: auto;
     font-family: 'Sanchez', serif;
+    max-width:1025px;
 }
+
+
 /*index page styles*/
 
 
