@@ -1,3 +1,7 @@
 {% extends "base.html" %}
 
-<p>test</p>
+{% block search_results_returned %}
+    {% for result in s_results %}
+        <p>{{ result.name }}</p>
+    {% endfor %}
+{% endblock %}
