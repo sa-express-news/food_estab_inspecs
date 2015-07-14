@@ -1,8 +1,9 @@
 from django.http import HttpResponse, Http404
 from django.template import RequestContext, loader
 from django.shortcuts import render
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from insps.models import Inspection, Description, GeocodedEstab
+from insps.forms import SearchForm
 
 def index(request):
     latest_insps = Inspection.objects.all().order_by('-date')[:500]
@@ -30,6 +31,29 @@ def inspection(request, inspection_key):
     except Description.DoesNotExist:
         raise Http404
     return render(request, 'insps/inspection.html', { 'insp_details': insp_details })
+
+
+def search(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            s_query = form.cleaned_data['search_query']
+            results = GeocodedEstab.objects.all().filter(name__icontains=s_query)
+            paginator = Paginator(results, 10)
+            page = request.GET.get('page')
+
+            try: 
+                estabs = paginator.page(page)
+            except PageNotAnInteger:
+                estabs = paginator.page(1)
+            except EmptyPage:
+                estabs = paginator.page(paginator.num_pages)
+
+            return render(request, 'insps/search.html', { 'form':form, 'estabs': estabs })
+    else:
+        form = SearchForm()
+
+    return render(request, 'insps/search.html', { 'form':form } )
 
 
 
