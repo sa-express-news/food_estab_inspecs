@@ -28,6 +28,12 @@
 
     {% block estabsmapdiv %}{% endblock %}
 
+   <form action="/insps/search/" method="post">{% csrf_token %}
+        {{ search_form.as_p }}
+        <input type="submit" value="Submit" />
+   </form> 
+
+
     {% block index_table %}{% endblock %}
     
     {% block rest_insp_list %}{% endblock %}
