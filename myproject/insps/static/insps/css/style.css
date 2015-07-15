@@ -184,7 +184,7 @@ h4#inspection_detail_date {
     margin-right: auto;
     margin-left: 10.15%;
     margin-right: auto;
-    width:240px;
+    width:260px;
     color:#707070;
 }
 
@@ -208,6 +208,21 @@ h2#estab_name_header a {
     margin-right: auto;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+#search-wrapper{
+    width:80%;
+    max-width: 1025px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+#search-form{
+    float:left;
+
 }
 
 

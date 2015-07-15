@@ -28,10 +28,14 @@
 
     {% block estabsmapdiv %}{% endblock %}
 
-   <form action="/insps/search/" method="post">{% csrf_token %}
-        {{ search_form.as_p }}
-        <input type="submit" value="Submit" />
-   </form> 
+   <div id="search-wrapper">
+       <form id="search-form" action="/insps/search/" method="post">{% csrf_token %}
+            {{ search_form.as_p }}
+            <input type="submit" value="Submit" />
+       </form> 
+    </div>
+
+    <div class="clear_floats"></div>
 
    {% block search_Data_Table %}{% endblock %}
 
