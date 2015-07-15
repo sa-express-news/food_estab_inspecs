@@ -29,6 +29,7 @@
     {% block estabsmapdiv %}{% endblock %}
 
    <div id="search-wrapper">
+    <div>Search entire database for restaurants by name:</div>
        <form id="search-form" action="/insps/search/" method="post">{% csrf_token %}
             {{ search_form.as_p }}
             <input type="submit" value="Submit" />
