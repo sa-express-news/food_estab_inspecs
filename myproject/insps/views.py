@@ -1,6 +1,7 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.shortcuts import render
+from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from insps.models import Inspection, Description, GeocodedEstab
 from insps.forms import SearchForm
@@ -38,16 +39,7 @@ def search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             s_query = form.cleaned_data['search_query']
-            results = GeocodedEstab.objects.all().filter(name__icontains=s_query)
-            paginator = Paginator(results, 10)
-            page = request.GET.get('page')
-
-            try: 
-                estabs = paginator.page(page)
-            except PageNotAnInteger:
-                estabs = paginator.page(1)
-            except EmptyPage:
-                estabs = paginator.page(paginator.num_pages)
+            estabs = GeocodedEstab.objects.all().filter(name__icontains=s_query)
 
             return render(request, 'insps/search.html', { 'form':form, 'estabs': estabs })
     else:
