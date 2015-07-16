@@ -222,6 +222,21 @@ h2#estab_name_header a {
 
 #search-form{
     float:left;
+}
+
+#no_results_wrapper {
+    width:80%;
+    max-width: 1025px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+#no_results {
+    float:left;
+    color:red;
 
 }
 

@@ -34,7 +34,16 @@
                 {% endfor %}
         </tbody>
     </table>
-            {% endif %}
+
+    {% else %}
+
+    <div id="no_results_wrapper">
+        <div id="no_results">
+                No results were returned for that name.  Please, try again. 
+        </div>
+    </div>
+            
+    {% endif %}
 <div id="button_container">
     <div id="button">
         <a href="/insps/" class="homelink">
