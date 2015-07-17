@@ -45,7 +45,7 @@ def get_new_descs_ids(reader_o, url):
             
 def get_csv(filename):
     # url = BASEURL + make_today() + '/' + filename
-    url = BASEURL + "04_19_15" + '/' + filename
+    url = BASEURL + "07_12_15" + '/' + filename
     
     csv_resp = urllib2.urlopen(url)
     reader_o = csv.DictReader(csv_resp)
