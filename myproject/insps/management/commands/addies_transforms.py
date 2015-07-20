@@ -34,21 +34,3 @@ class Command(BaseCommand):
 
 
 
-
-
-
-
-
-
-        # with open(estabs, "r") as f:
-        #     data = list(csv.reader(f))
-
-        # with open(fixed_estabs, "a") as f:
-        #     writer = csv.writer(f)
-        #     for row in data:
-        #         for transform in transforms:
-        #             row[2] = row[2].replace(*transform)
-        #         writer.writerow(row)
-
-
-
