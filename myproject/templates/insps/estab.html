@@ -82,7 +82,7 @@
                     tooltip: {
                         enabled: true, 
                         formatter: function() {
-                            return 'Demerits: ' + this.point.y + '<br>' + '<a href="http://localhost:8000/insps/' + this.point.inspection_key + '/">Click for details.';
+                            return 'Demerits: ' + this.point.y + '<br>' + '<a href="http://localhost:8000/' + this.point.inspection_key + '/">Click for details.';
                         },
                         style: {
                             fontFamily: 'Sanchez, serif',
@@ -120,7 +120,7 @@
 </div>
 <div id="button_container">
     <div id="button">
-        <a href="/insps/" class="homelink">
+        <a href="/" class="homelink">
             <p>
                 HOME
             </p>

@@ -39,7 +39,7 @@ San Antonio Food Establishment Inspections Explorer
 {% if latest_insps %}
         {% for insp in latest_insps %}
         <tr>
-            <td><a href="/insps/{{ insp.estab_id.estab_id }}/">{{ insp.estab_id.name }}</a></td>
+            <td><a href="/{{ insp.estab_id.estab_id }}/">{{ insp.estab_id.name }}</a></td>
             <td>{{ insp.estab_id.address|upper }}</td>
             <td>{{ insp.demerits_nums }}</td>
             <td>{{ insp.date }}</td>

@@ -28,7 +28,7 @@
             {% if estabs %}
                 {% for estab in estabs %}
                     <tr>
-                        <td><a href="/insps/{{ estab.estab_id }}/">{{ estab.name }}</td>
+                        <td><a href="/{{ estab.estab_id }}/">{{ estab.name }}</td>
                         <td>{{ estab.address|upper }}</td>
                     </tr>
                 {% endfor %}
@@ -46,7 +46,7 @@
     {% endif %}
 <div id="button_container">
     <div id="button">
-        <a href="/insps/" class="homelink">
+        <a href="/" class="homelink">
             <p>
                 HOME
             </p>

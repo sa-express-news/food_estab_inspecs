@@ -2,7 +2,7 @@
 
 {% block insp_detail %}
 {% if insp_details %}
-<h2 id="estab_name_header"><a href="/insps/{{ insp_details.0.estab_id_id }}/">{{ insp_details.0.estab_id.name }}, {{ insp_details.0.estab_id.address}}</a></h2>
+<h2 id="estab_name_header"><a href="/{{ insp_details.0.estab_id_id }}/">{{ insp_details.0.estab_id.name }}, {{ insp_details.0.estab_id.address}}</a></h2>
 
 <div class="inspection_container">
     <h4 id="inspection_detail_date">Inspection Date: {{ insp_details.0.inspection_key.date }}   </h4>
@@ -17,7 +17,7 @@
 
 <div id="button_container">
     <div id="button">
-        <a href="/insps/" class="homelink">
+        <a href="/" class="homelink">
             <p>
                 HOME
             </p>
