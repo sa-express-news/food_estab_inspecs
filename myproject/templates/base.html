@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <link rel="stylesheet" href="{% static "css/jquery.dataTables.css" %}" />
+    <link rel="stylesheet" href="{% static "css/leaflet.css" %}" />
+    <script type="text/javascript" src="{% static "js/jquery-1.11.1.min.js" %}"> </script>
+    <script type="text/javascript" src="{% static "js/jquery.dataTables.min.js" %}"> 
+    </script>
+    <script type="text/javascript" src="{% static "js/highcharts.js" %}"> 
+    </script>
+    <script type="text/javascript" src="{% static "js/leaflet.js" %}">
+    </script>
+    <!--<script type="text/javascript" src="{% static "insps/js/estabsmap.js" %}">
+    </script>-->
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script> 
+  
+    {% block index_Data_Table %} {% endblock %} 
+    
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+<!--    <div class="iframe_header">
+      <iframe target=_blank src="http://www.mysanantonio.com/?controllerName=cmfThirdPartyHeader" width="1030" height="310" scrolling="no" frameborder="0"></iframe>
+    </div>-->
+
+    {% block estabsmapdiv %}{% endblock %}
+
+   <div id="search-wrapper">
+    <div>Search entire database for restaurants by name:</div>
+       <form id="search-form" action="/insps/search/" method="post">{% csrf_token %}
+            {{ search_form.as_p }}
+            <input type="submit" name='submit' value="Submit" />
+       </form> 
+    </div>
+
+    <div class="clear_floats"></div>
+
+   {% block search_Data_Table %}{% endblock %}
+
+   {% block search_results_returned %}{% endblock %}
+
+
+    {% block index_table %}{% endblock %}
+    
+    {% block rest_insp_list %}{% endblock %}
+    
+    {% block insp_detail %}{% endblock %}
+   
+
+<!--    <div class="iframe_footer">
+        <iframe src="http://www.mysanantonio.com/?controllerName=cmfThirdPartyFooter" width="1030" height="450" scrolling="no" frameborder="0"></iframe>
+    </div>-->
+
+</body>
+{% block estabsmap %}{% endblock %}
+</html>
+

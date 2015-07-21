@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block search_Data_Table %}
+<script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('#estab_search_table').DataTable( {
+            paging: true,
+             "order": [[ 0, "desc" ]],
+            language: {
+                search: "",
+                searchPlaceholder: "Refine your search..."
+            }, 
+            "bLengthChange":false
+        } );
+    } );
+</script>
+{% endblock %}
+
+{% block search_results_returned %}
+<table id="estab_search_table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+        <tbody>
+            {% if estabs %}
+                {% for estab in estabs %}
+                    <tr>
+                        <td><a href="/insps/{{ estab.estab_id }}/">{{ estab.name }}</td>
+                        <td>{{ estab.address|upper }}</td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+
+    <div id="no_results_wrapper">
+        <div id="no_results">
+                No results were returned for that name.  Please, try again. 
+        </div>
+    </div>
+            
+    {% endif %}
+<div id="button_container">
+    <div id="button">
+        <a href="/insps/" class="homelink">
+            <p>
+                HOME
+            </p>
+        </a>
+    </div>
+</div>
+<div class="clear_floats"></div>
+{% endblock %}
