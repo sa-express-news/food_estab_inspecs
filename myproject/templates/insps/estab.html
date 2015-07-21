@@ -3,7 +3,9 @@
 {% block rest_insp_list %}
 
 <div id="estab_container">
-    <h2 id="estab_name_header">{{ estab.0.estab_id.name }}, {{ estab.0.estab_id.address}}</h2>
+    {% if estab %}
+        <h2 id="estab_name_header">{{ estab.0.estab_id.name }}, {{ estab.0.estab_id.address}}</h2>
+    {% endif %}
 
     <hr class="style-one">
 
