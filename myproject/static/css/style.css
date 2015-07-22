@@ -26,7 +26,8 @@ body {
     color:#999994;
     text-align: center;
     font-weight: bold;
-    text-decoration: none; 
+    text-decoration: none;
+    font-family: "FarnhamText",serif; 
 }
 
 #button{
@@ -148,6 +149,7 @@ hr.style-one {
     margin-left: auto;
     width:45%;
     color:#999994;
+    font-family: "FarnhamText",serif;
 }
 /*estab page styles */
 
