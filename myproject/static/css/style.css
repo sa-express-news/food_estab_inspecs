@@ -1,9 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Sanchez);
-
-
 body {
     font-size:16px;
-    font-family: 'Helvetica', sans-serif;
+    font-family: "FarnhamText",serif;
 }
 
 
@@ -26,7 +23,7 @@ body {
     vertical-align: middle;
     width:100%;
     height:100%;
-    color:#F4811F;
+    color:#999994;
     text-align: center;
     font-weight: bold;
     text-decoration: none; 
@@ -80,7 +77,7 @@ a.homelink:link {
     margin-bottom: 15px;
     margin-left:auto;
     margin-right: auto;
-    font-family: 'Sanchez', serif;
+    font-family: "FarnhamText",serif;
     max-width:1025px;
 }
 
@@ -100,7 +97,7 @@ a.homelink:link {
 .estab_page_text {
     font-size: 125%;
     padding:5px;
-    font-family: 'Sanchez', serif;
+    font-family: "FarnhamText",serif;
     height:auto;
 }
 
@@ -113,8 +110,8 @@ a.homelink:link {
 }
 
 #hover_warning {
-    font-size: 100%;
-    font-family: 'Sanchez', serif;
+    font-size: 115%;
+    font-family: "FarnhamText",serif;
     height:auto;
     font-style: italic;
 
@@ -150,7 +147,7 @@ hr.style-one {
     margin-right: auto;
     margin-left: auto;
     width:45%;
-    color:#707070;
+    color:#999994;
 }
 /*estab page styles */
 
@@ -260,51 +257,13 @@ h2#estab_name_header a {
     text-transform: none;
 }
 
-/*unused css for navigation*/
-nav {
-    background: #282828;
-    height: 50px;
-    width: 100%;
-    position: relative;
-    }
+#right-side-list {
+    float:right;
+}
 
-.nav-container {
-    margin-right: auto;
-    margin-left: auto; 
-    }
+.navbar-brand {
+    background-image: url(../images/SAEN-Lines-Bw.png);
+}
 
-#nav-enlogo {
-    display: block;
-    min-width: 212px;
-    height: 50px;
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-image: url(images/SAEN-Lines-Bw.png);
-    margin-left: 1.5%;
-    margin-right: 3%;
-    padding-right: 3%;
-    float: left;
-    }
-    
-#nav-links ul {
-    display: block;
-    position: static;
-    width: auto;
-    margin-left: 0;
-    padding: 0;
-    float: left;
-    }
-
-#nav-links li {
-    list-style-type: none;
-    margin: 0;
-    padding: 16px;
-    display: inline-table;
-    vertical-align: middle;
-    }
-
-#nav-links a {
-    color:FFFFFF; 
-    }
 
 
