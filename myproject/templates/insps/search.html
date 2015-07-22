@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block search_Data_Table %}
+{% if estabs %}
 <script type="text/javascript" class="init">
     $(document).ready( function () {
         $('#estab_search_table').DataTable( {
@@ -14,9 +15,6 @@
         } );
     } );
 </script>
-{% endblock %}
-
-{% block search_results_returned %}
 <table id="estab_search_table">
     <thead>
         <tr>
@@ -24,6 +22,11 @@
             <th>Address</th>
         </tr>
     </thead>
+
+{% endif %}
+{% endblock %}
+
+{% block search_results_returned %}
         <tbody>
             {% if estabs %}
                 {% for estab in estabs %}
