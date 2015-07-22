@@ -43,22 +43,23 @@
                     title: {
                         text: 'Inspection Results',
                         style: {
-                            fontFamily:'Sanchez, serif',
-                            fontSize:"140%" 
+                            fontFamily:'Helvetica serif',
+                            fontSize:"170%" 
                         }
                     },
                     subtitle: {
                         text: 'San Antonio Metropolitan Health District',
                         style: {
-                            fontFamily:'Sanchez, serif',
-                            fontSize: "130%" 
+                            fontFamily:'Helvetica serif',
+                            fontSize: "140%" 
                         }
                     },
                     xAxis: {
                         categories: dates_js,
                         labels: {
                             style: {
-                                fontFamily: 'Sanchez, serif'                            
+                                fontFamily: 'Helvetica serif',
+                                fontSize: '120%'                            
                             }
                         }
                     },
@@ -68,14 +69,15 @@
                             x:0,
                             y:-2,
                             style: {
-                                fontFamily: 'Sanchez, serif'
+                                fontFamily: 'Helvetica serif',
+                                fontSize: "120%"
                             }
                         },
                         title: {
                             text: 'Demerits',
                             style: {
-                                fontFamily: 'Sanchez, serif',
-                                fontSize: "130%",
+                                fontFamily: 'Helvetica serif',
+                                fontSize: "140%",
                                 letterSpacing:'.5px'
                             }
                         },
@@ -87,7 +89,8 @@
                             return 'Demerits: ' + this.point.y + '<br>' + '<a href="http://localhost:8000/' + this.point.inspection_key + '/">Click for details.';
                         },
                         style: {
-                            fontFamily: 'Sanchez, serif',
+                            fontFamily: 'Helvetica serif',
+                            fontSize: '120%'
                         }
                     },
                     series: [{
