@@ -111,13 +111,33 @@
     {% block rest_insp_list %}{% endblock %}
     
     {% block insp_detail %}{% endblock %}
-   
 
 <!--    <div class="iframe_footer">
         <iframe src="http://www.mysanantonio.com/?controllerName=cmfThirdPartyFooter" width="1030" height="450" scrolling="no" frameborder="0"></iframe>
     </div>-->
 
 </body>
+
+<footer class="footer">
+<a class="footer-logo" href="http://expressnews.com"></a>
+<div class="navbar-collapse collapse">
+    <div  class="footer-tophat">
+        <ul>
+            <li>
+            <a href="https://myaccount.expressnews.com/dssSubscribe.aspx?PID=248&z=00000&verifyemail=true">Subscribe</a>
+            </li>
+            <li id="footer-links"><a href="http://www.expressnews.com/newsroom_contacts/">Newsroom Contacts</a>
+            </li>
+            <li id="footer-links"><a href="http://www.expressnews.com/terms_of_use/">Terms of Use</a>
+            </li>
+            <li id="footer-links"><a href="http://hearstmediasanantonio.com/">Advertise</a>
+            </li>
+            <li>&copy; {% now "Y" %}
+            </li>
+        </ul>
+    </div>
+</div>
+</footer>
 {% block estabsmap %}{% endblock %}
 </html>
 
