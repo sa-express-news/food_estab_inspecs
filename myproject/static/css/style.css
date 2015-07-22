@@ -165,7 +165,6 @@ hr.style-one {
 }
 
 .viol {
-    font-family: 'Sanchez', serif;
     color: #333;
     line-height: 1.2em;
     text-decoration: none;
@@ -178,6 +177,7 @@ ul#insp_details {
 
 ul#insp_details li {
     margin-top: 2%;
+    font-size: 120%;
 }
 
 h4#inspection_detail_date {
@@ -186,6 +186,8 @@ h4#inspection_detail_date {
     margin-right: auto;
     width:260px;
     color:#707070;
+    font-family: "FarnhamText",serif;
+    font-size: 125%;
 }
 
 h2#estab_name_header a {
@@ -236,6 +238,7 @@ h2#estab_name_header a {
 
 #search-instructions{
     font-size: 16px;
+    margin-bottom: 15px;
 }
 
 #no_results {
