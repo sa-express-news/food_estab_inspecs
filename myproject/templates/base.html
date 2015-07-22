@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}" />
     <link rel="stylesheet" href="{% static "css/jquery.dataTables.css" %}" />
     <link rel="stylesheet" href="{% static "css/leaflet.css" %}" />
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}" />
+
     <script type="text/javascript" src="{% static "js/jquery-1.11.1.min.js" %}"> </script>
     <script type="text/javascript" src="{% static "js/jquery.dataTables.min.js" %}"> 
     </script>
@@ -13,9 +15,15 @@
     </script>
     <script type="text/javascript" src="{% static "js/leaflet.js" %}">
     </script>
-    <!--<script type="text/javascript" src="{% static "insps/js/estabsmap.js" %}">
-    </script>-->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> 
     <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script> 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+
   
     {% block index_Data_Table %} {% endblock %} 
     
@@ -27,10 +35,66 @@
       <iframe target=_blank src="http://www.mysanantonio.com/?controllerName=cmfThirdPartyHeader" width="1030" height="310" scrolling="no" frameborder="0"></iframe>
     </div>-->
 
+            <!--navigation-->
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://expressnews.com"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+            <div class="nav-tophat">
+                <ul id="nav-list" class="nav navbar-nav">     
+                    <li>
+                        <a href="http://www.expressnews.com/news/local/">Local</a>
+                    </li>
+                    <li>
+                        <a href="http://www.expressnews.com/news/us-world/">U.S. & World</a>                           
+                    </li>
+                    <li>
+                        <a href="http://www.expressnews.com/opinion/">Opinion</a>                          
+                    </li>
+                    <li>
+                        <a href="http://www.expressnews.com/business/">Business</a>                            
+                    </li>
+                    <li>
+                        <a href="http://www.expressnews.com/sports/">Sports</a>                            
+                    </li>
+                    <li>
+                        <a href="http://www.expressnews.com/entertainment/">Arts</a>                           
+                    </li>
+                    <li>
+                        <a href="http://www.expressnews.com/lifestyle/">Life</a>
+                    </li>
+                </ul>
+                <ul id="right-side-list" class="nav navbar-nav">
+                    <li>
+                        <a href="http://www.expressnews.com/lifestyle/">e-edition</a>
+                    </li>
+                      <li>
+                        <a href="http://www.expressnews.com/lifestyle/">Free Trial</a>
+                    </li>
+                    <li>
+                        <a href="http://www.expressnews.com/lifestyle/">Subscribe</a>
+                    </li>
+                    <li>
+                        <a href="http://www.expressnews.com/lifestyle/">Sign in</a>
+                    </li>
+
+                </ul>
+        </div><!--/nav-tophat-->
+        </div><!--/.nav-collapse -->
+    </div>
+    <!--end navigation block-->
+
     {% block estabsmapdiv %}{% endblock %}
 
    <div id="search-wrapper">
-    <div>Search entire database for restaurants by name:</div>
+    <div id="search-instructions">Search entire database for restaurants by name:</div>
        <form id="search-form" action="/search/" method="post">{% csrf_token %}
             {{ search_form.as_p }}
             <input type="submit" name='submit' value="Submit" />
