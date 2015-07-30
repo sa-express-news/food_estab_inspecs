@@ -5,6 +5,7 @@ myproject/insps/data/
 .DS_Store
 food_estabs.rb
 /logfile
+/myproject/insps/management/commands/createsu.py
 
 
 ########################
