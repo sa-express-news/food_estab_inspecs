@@ -34,7 +34,7 @@ def load(reader_o):
 
 def get_csv(filename):
     # url = BASEURL + make_today() + '/' + filename
-    url = BASEURL + "08_02_15" + '/' + filename
+    url = BASEURL + "01_00_00" + '/' + filename
 
     response = urllib2.urlopen(url)
     reader_o = csv.DictReader(response)
