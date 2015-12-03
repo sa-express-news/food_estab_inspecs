@@ -1,7 +1,7 @@
 csvkit==0.9.1
 dbf==0.94.3
-GDAL==1.0.1
-jdcal==1.0
+GDAL==1.11.3
+jdcal==1.0.1
 mbutil==0.2.0
 openpyxl==2.2.0b1
 python-dateutil==2.2
