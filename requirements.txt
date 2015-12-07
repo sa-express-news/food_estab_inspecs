@@ -1,12 +1,23 @@
-dbf==0.94.3
-jdcal==1.0.1
-mbutil==0.2.0
-openpyxl==2.2.0b1
-python-dateutil==2.2
-six==1.10.0
-SQLAlchemy==1.0.8
-stevedore==0.15
-virtualenv==1.11.6
-virtualenv-clone==0.2.5
-virtualenvwrapper==4.3.1
-xlrd==0.9.4
+backports.ssl-match-hostname (3.4.0.2)
+boto (2.32.0)
+cement (2.4.0)
+Django (1.7.9)
+docker-py (1.1.0)
+dockerpty (0.3.4)
+docopt (0.6.2)
+jmespath (0.7.1)
+oauthlib (0.6.1)
+pathspec (0.3.3)
+pip (1.4.1)
+psycopg2 (2.5.3)
+python-dateutil (2.4.2)
+python-googlegeocoder (0.2.0)
+PyYAML (3.11)
+requests (2.6.2)
+requests-oauthlib (0.4.0)
+setuptools (0.9.8)
+six (1.9.0)
+texttable (0.8.3)
+twython (3.1.2)
+websocket-client (0.32.0)
+wsgiref (0.1.2)
