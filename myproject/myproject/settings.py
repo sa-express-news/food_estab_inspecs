@@ -88,8 +88,11 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
 ###commented out STATICFILES_DIRS for deployment
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = os.path.join(BASE_DIR, "..", "static")
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),
+                    '/home/deployer/rest_insps/www/static/',
+                    ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATIC_URL = '/static/'
 
 
