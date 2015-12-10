@@ -89,7 +89,7 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 ###commented out STATICFILES_DIRS for deployment
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = os.path.join(BASE_DIR, "..", "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 
 
