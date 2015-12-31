@@ -3,7 +3,8 @@ import csv
 import datetime
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
+DJANGO_SETTINGS_MODULE = environ['DJANGO_SETTINGS_MODULE']
 from insps.models import Inspection
 
 BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
