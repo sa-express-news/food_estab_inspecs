@@ -2,8 +2,9 @@ import urllib2
 import csv
 import datetime
 import os
+from os import environ
 
-#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
+
 DJANGO_SETTINGS_MODULE = environ['DJANGO_SETTINGS_MODULE']
 from insps.models import GeocodedEstab
 
