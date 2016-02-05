@@ -4,15 +4,11 @@ import datetime
 import os
 from os import environ
 
-#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
 DJANGO_SETTINGS_MODULE = environ['DJANGO_SETTINGS_MODULE']
 from insps.models import Inspection
 
+BASEDIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'scraper/data/processed')
 BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
-
-def make_today():
-    today = datetime.datetime.now().strftime("%m_%d_%y")
-    return today
 
 def load(reader_o):
     inspections = Inspection.objects.all()
@@ -24,7 +20,6 @@ def load(reader_o):
         record_exists = inspections.filter(inspection_key=record.inspection_key).exists()
         if record_exists:
             print("record exists")
-
         else:
             print("new record")
             record.save() 
@@ -33,15 +28,15 @@ def load(reader_o):
     final_inspections_length = len(inspections)
     print("Final inspection length: %s") % final_inspections_length
 
+def get_csv(filename, loadversion):
+    if loadversion == 'initial':
+        url = BASEURL + "01_00_00" + '/' + filename
+        response = urllib2.urlopen(url)
+        reader_o = csv.DictReader(response)
+        return load(reader_o)
+    elif loadversion == 'update':
+        reader_o = csv.DictReader(open(os.path.join(BASEDIR, filename)))
+        return load(reader_o)
 
-def get_csv(filename):
-    # url = BASEURL + make_today() + '/' + filename
-    url = BASEURL + "01_00_00" + '/' + filename
-
-    response = urllib2.urlopen(url)
-    reader_o = csv.DictReader(response)
-    return load(reader_o)
-
-
-def load_csv():
-    get_csv('inspections_tbl.csv')
+def load_csv(loadversion):
+    get_csv('inspections_tbl.csv', loadversion)

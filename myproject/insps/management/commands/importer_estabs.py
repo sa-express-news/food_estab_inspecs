@@ -3,4 +3,4 @@ from insps.lib.import_estabs import load_csv
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        load_csv()
+        load_csv(args[0])

@@ -8,12 +8,8 @@ from os import environ
 DJANGO_SETTINGS_MODULE = environ['DJANGO_SETTINGS_MODULE']
 from insps.models import GeocodedEstab
 
-BASEDIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/scraper')
-#BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
-
-def make_today():
-    today = datetime.datetime.now().strftime("%m_%d_%y")
-    return today
+BASEDIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'scraper/data/processed')
+BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
 
 def load(reader_o):
     estabs = GeocodedEstab.objects.all()
@@ -35,14 +31,15 @@ def load(reader_o):
 
 
 
-def get_csv(filename):
-    # url = BASEURL + make_today() + '/' + filename
-    url = BASEURL + "01_00_00" + '/' + filename
+def get_csv(filename, loadversion):
+    if loadversion == 'initial':
+        url = BASEURL + "01_00_00" + '/' + filename
+        response = urllib2.urlopen(url)
+        reader_o = csv.DictReader(response)
+        return load(reader_o)
+    elif loadversion == 'update':
+        reader_o = csv.DictReader(open(os.path.join(BASEDIR, filename)))
+        return load(reader_o)
 
-    response = urllib2.urlopen(url)
-    reader_o = csv.DictReader(response)
-    return load(reader_o)
-
-
-def load_csv():
-    get_csv('estabs_tbl.csv')
+def load_csv(loadversion):
+    get_csv('estabs_tbl.csv', loadversion)
