@@ -7,7 +7,7 @@ food_estabs.rb
 /logfile
 myproject/myproject/settings/secrets.json
 myproject/myproject/settings/secrets_prod.json
-
+myproject/insps/scraper/data
 
 
 ########################

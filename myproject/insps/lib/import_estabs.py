@@ -8,7 +8,8 @@ from os import environ
 DJANGO_SETTINGS_MODULE = environ['DJANGO_SETTINGS_MODULE']
 from insps.models import GeocodedEstab
 
-BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
+BASEDIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/scraper')
+#BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
 
 def make_today():
     today = datetime.datetime.now().strftime("%m_%d_%y")
