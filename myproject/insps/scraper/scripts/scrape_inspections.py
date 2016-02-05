@@ -8,8 +8,8 @@ DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/')
 
 def initiate_scrape():
     print('initiate scrape')  
-    #print('clearing out contents of data dir, if necessary...')   
-    #runshutil.rmtree(DATA_DIR)
+    print('clearing out contents of data dir, if necessary...')   
+    runshutil.rmtree(DATA_DIR)
     print('begin fetching pages')
     fetch_pages()
     get_estab_pages()    
