@@ -24,7 +24,14 @@ class Command(BaseCommand):
             ('GEN KRUEGER BV', 'GENERAL KRUEGER BLVD'),
             ('JDTN FY', 'JOURDANTON FWY'),
             ('CI', 'CIR'),
-            ('EEEEEEEEEEEEEEEE', 'E')
+            ('EEEEEEEEEEEEEEEE', 'E'), 
+            ('COMMERCIRRRRRRRRRRRRRRRRRRRAL', 'Commercial'),
+            ('AVEEEE', 'AVE'), 
+            ('AVEEEEEEEEEEEEEE', 'AVE'),
+            ('AVEEEEEEEEEEEEE', 'AVE'), 
+            ('ENCIRRRRRRRRRRRRRRRRRRRRNO', 'ENCINO'),
+            ('AVEEEE', 'AVE'),
+            ('CHAVEEEEEANEAUX', 'CHAVEANEAUX')
         } 
         estabs = GeocodedEstab.objects.all()
         for estab in estabs:
