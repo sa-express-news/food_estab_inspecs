@@ -20,25 +20,26 @@ def load_descs(new_descs_list, localpath_or_url):
     for o in reader_o:
         record = Description(**o)
         if record.inspection_key_id in new_descs_list:
-            print("saving new descriptions...")
+            #print("saving new descriptions...")
             record.save()
     descs = Description.objects.all()
     final_count = len(descs)
-    print("Final Description model count: %d") % final_count
+    #print("Final Description model count: %d") % final_count
 
 
 def get_new_descs_ids(reader_o, url):
     new_descs_list = []   
     descs = Description.objects.all()
     initial_count = len(descs) 
-    print("Initial Description model count: %d") % initial_count
+    #print("Initial Description model count: %d") % initial_count
     for o in reader_o:
         record = Description(**o)
         record_exists = descs.filter(inspection_key_id=record.inspection_key_id).exists() 
         if record_exists:
-            print("record exists")
+            continue
+            #print("record exists")
         elif record.inspection_key_id not in new_descs_list:
-            print("adding id to list")
+            #print("adding id to list")
             new_descs_list.append(record.inspection_key_id)
     load_descs(new_descs_list, url)
             

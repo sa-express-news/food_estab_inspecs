@@ -13,20 +13,21 @@ BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
 def load(reader_o):
     inspections = Inspection.objects.all()
     inspections_length = len(inspections)
-    print("Initial inspection length:%s") % inspections_length
+    #print("Initial inspection length:%s") % inspections_length
 
     for o in reader_o:
         record = Inspection(**o)
         record_exists = inspections.filter(inspection_key=record.inspection_key).exists()
         if record_exists:
-            print("record exists")
+            continue
+            #print("record exists")
         else:
-            print("new record")
+            #print("new record")
             record.save() 
 
     inspections = Inspection.objects.all()
     final_inspections_length = len(inspections)
-    print("Final inspection length: %s") % final_inspections_length
+    #print("Final inspection length: %s") % final_inspections_length
 
 def get_csv(filename, loadversion):
     if loadversion == 'initial':
