@@ -7,9 +7,7 @@ from datetime import datetime
 from insps.scraper.lib.utilities import write_to_csv, write_to_csv_insps
 
 ESTAB_PAGE_CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/estabs')
-write_to_csv(["estab_id","name","address"],'estabs_tbl.csv')
-write_to_csv(["estab_id_id","date","demerits","demerits_nums","inspection_key"], 'inspections_tbl.csv')
-write_to_csv(["estab_id_id","inspection_key_id","viol_text"], 'descs_tbl.csv')
+
 
 def process_estabs(file):
     estabs = []
@@ -77,6 +75,9 @@ def process_estabs(file):
     return 
 
 def iterate_raw_pages():
+    write_to_csv(["estab_id","name","address"],'estabs_tbl.csv')
+    write_to_csv(["estab_id_id","date","demerits","demerits_nums","inspection_key"], 'inspections_tbl.csv')
+    write_to_csv(["estab_id_id","inspection_key_id","viol_text"], 'descs_tbl.csv')
     os.chdir(ESTAB_PAGE_CACHE_DIR)
     for file in glob.glob("*.html"):
         process_estabs(file)
