@@ -42,5 +42,5 @@ def get_csv(filename, loadversion):
         reader_o = csv.DictReader(open(os.path.join(BASEDIR, filename)))
         return load(reader_o)
 
-def load_csv(loadversion):
+def load_csv_estabs(loadversion):
     get_csv('estabs_tbl.csv', loadversion)

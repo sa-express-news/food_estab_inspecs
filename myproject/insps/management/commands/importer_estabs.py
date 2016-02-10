@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
-from insps.lib.import_estabs import load_csv
+from insps.lib.import_estabs import load_csv_estabs
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        load_csv(args[0])
+        load_csv_estabs(args[0])

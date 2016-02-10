@@ -54,5 +54,5 @@ def get_csv(filename, loadversion):
         reader_o = csv.DictReader(open(local_path))
         return get_new_descs_ids(reader_o, local_path) 
 
-def load_csv(loadversion):
+def load_csv_descriptions(loadversion):
     get_csv('descs_tbl.csv', loadversion)
