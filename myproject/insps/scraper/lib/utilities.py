@@ -10,7 +10,7 @@ def store_search_page(content, local_path, dir_path):
     if not os.path.isdir(dir_path):
         os.makedirs(dir_path)
     with open(local_path, 'wb') as f:
-        print("Storing %s") % (local_path)
+        #print("Storing %s") % (local_path)
         f.write(content)
 
 def get_content(url, dir_path, filename):
@@ -22,7 +22,7 @@ def get_content(url, dir_path, filename):
         content = r.content
         store_search_page(content, local_path, dir_path)
     else:
-        print "File exists."
+        print "File exists: %s" % filename
 
 def write_to_csv(arr, table_name):
     if not os.path.isdir(PROCESSED_ESTAB_DIR):

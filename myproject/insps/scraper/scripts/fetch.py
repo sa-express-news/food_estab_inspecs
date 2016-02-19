@@ -23,11 +23,11 @@ def fetch_pages():
     SEARCH_PAGE_COUNT = get_final_page_count()
 
 
-    print(SEARCH_PAGE_COUNT)
+    #print(SEARCH_PAGE_COUNT)
 
     while (counter <= SEARCH_PAGE_COUNT):
 
-        print("On search page: %d.") % (counter)
+        #print("On search page: %d.") % (counter)
         url = "%s%d" % (SEARCH_URL, start_number)
         get_content(url, SEARCH_PAGE_CACHE_DIR, start_number)
         counter += 1

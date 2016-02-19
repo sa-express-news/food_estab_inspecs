@@ -19,12 +19,13 @@ def load(reader_o):
     for o in reader_o:
         record = GeocodedEstab(**o)
         record_exists = estabs.filter(estab_id=record.estab_id).exists()
+        #print record.estab_id
         if record_exists:
             continue
-            #print("record exists")
+            print("record exists")
         else:
             record.save()
-            #print("record saved")
+            print("record saved")
 
     estabs = GeocodedEstab.objects.all()
     final_estab_count = len(estabs)

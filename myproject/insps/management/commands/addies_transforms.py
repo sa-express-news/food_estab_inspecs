@@ -35,7 +35,7 @@ class Command(BaseCommand):
         } 
         estabs = GeocodedEstab.objects.all()
         for estab in estabs:
-            print("Estab evaluating for transformation: " + estab.address)
+            #print("Estab evaluating for transformation: " + estab.address)
             for transform in transforms:
                 estab.address = estab.address.replace(*transform)
                 estab.save()
