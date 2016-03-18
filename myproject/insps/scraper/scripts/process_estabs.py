@@ -18,8 +18,6 @@ def process_estabs(file):
 
     soup = BeautifulSoup(open(file, 'r'), "html.parser")
 
-    print(file)
-
     if soup.find('b', style='font-size:14px;') is not None:
         name = soup.find('b', style='font-size:14px;').text.encode("utf-8") 
 

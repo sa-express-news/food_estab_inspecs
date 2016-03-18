@@ -21,8 +21,6 @@ def fetch_pages():
     start_number = 1
 
     SEARCH_PAGE_COUNT = get_final_page_count()
-
-
     #print(SEARCH_PAGE_COUNT)
 
     while (counter <= SEARCH_PAGE_COUNT):
