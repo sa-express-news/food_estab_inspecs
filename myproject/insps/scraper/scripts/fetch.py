@@ -7,6 +7,8 @@ SEARCH_PAGE_COUNT = 0
 SEARCH_PAGE_CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/search_pages')
 SEARCH_URL = 'http://samhd.tx.gegov.com/San%20Antonio/search.cfm?start='
 
+#refactor out the url request to facilitate 
+#testing specifically that request itself
 def get_final_page_count():
     url = 'http://samhd.tx.gegov.com/San%20Antonio/search.cfm'
     r = requests.get(url)
