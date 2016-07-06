@@ -8,7 +8,7 @@ DJANGO_SETTINGS_MODULE = environ['DJANGO_SETTINGS_MODULE']
 from insps.models import Inspection
 
 BASEDIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'scraper/data/processed')
-BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
+BASEURL = 'https://s3-us-west-2.amazonaws.com/rest-inspections-csvs/'
 
 def load(reader_o):
     inspections = Inspection.objects.all()

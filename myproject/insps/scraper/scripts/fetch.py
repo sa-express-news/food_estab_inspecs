@@ -3,21 +3,25 @@ import os
 from bs4 import BeautifulSoup
 from insps.scraper.lib.utilities import store_search_page, get_content
 
+
 SEARCH_PAGE_COUNT = 0
 SEARCH_PAGE_CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/search_pages')
 SEARCH_URL = 'http://samhd.tx.gegov.com/San%20Antonio/search.cfm?start='
 
-#refactor out the url request to facilitate 
-#testing specifically that request itself
+
+#refactor out the url request
+#pass content to get_final_page_count
 def get_final_page_count():
     url = 'http://samhd.tx.gegov.com/San%20Antonio/search.cfm'
     r = requests.get(url)
     content = r.content
     soup = BeautifulSoup(content, "html.parser")
-    anchors = soup.findAll("a", { "class" : "buttN" })
+    anchors = soup.findAll("a", {"class": "buttN"})
     search_page_count = int(anchors[-1].text)
     return search_page_count
 
+
+#currently not tested
 def fetch_pages():
     counter = 1
     start_number = 1

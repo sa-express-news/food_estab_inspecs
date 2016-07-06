@@ -9,7 +9,7 @@ DJANGO_SETTINGS_MODULE = environ['DJANGO_SETTINGS_MODULE']
 from insps.models import Description
 
 BASEDIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'scraper/data/processed')
-BASEURL = 'https://s3.amazonaws.com/inspections-csvs/'
+BASEURL = 'https://s3-us-west-2.amazonaws.com/rest-inspections-csvs/'
 
 def load_descs(new_descs_list, localpath_or_url):
     if re.search(r'https://s3', localpath_or_url):
